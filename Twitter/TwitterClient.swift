@@ -115,4 +115,22 @@ class TwitterClient: BDBOAuth1SessionManager {
         
     }
    
+    func retweet(tweetId: String) {
+        
+        TwitterClient.sharedinstance.POST("1.1/statuses/retweet/\(tweetId).json", parameters: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("successful retweet")
+            }) { (opreation: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("can't retweet")
+        }
+    }
+    
+    func favorite(tweetId: String) {
+        
+        TwitterClient.sharedinstance.POST("1.1/favorites/create.json?id=\(tweetId)", parameters: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("successful fav")
+            }) { (opreation: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("can't fav")
+        }
+     }
 }
+

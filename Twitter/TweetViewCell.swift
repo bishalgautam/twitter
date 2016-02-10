@@ -41,6 +41,11 @@ class TweetViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        userNamelabel.preferredMaxLayoutWidth = userNamelabel.frame.size.width
+        realNameLabel.preferredMaxLayoutWidth = realNameLabel.frame.size.width
+         tweetLabel.preferredMaxLayoutWidth = tweetLabel.frame.size.width
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -51,9 +56,9 @@ class TweetViewCell: UITableViewCell {
 
     @IBAction func onFavourite(sender: AnyObject) {
         
-       //  TwitterClient.sharedinstance.retweet(tweetIdSpec!)
+        TwitterClient.sharedinstance.retweet(tweetIdSpec!)
     }
     @IBAction func onReweets(sender: AnyObject) {
-     //   TwitterClient.sharedinstance.retweet(tweetIdSpec!)
+      TwitterClient.sharedinstance.retweet(tweetIdSpec!)
     }
 }
