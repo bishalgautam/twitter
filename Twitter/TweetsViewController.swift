@@ -9,6 +9,9 @@
 import UIKit
 
 class TweetsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate  {
+    
+   //  var refreshControl: UIRefreshControl!
+    
     var tweets: [Tweet]?
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,10 +28,40 @@ class TweetsViewController: UIViewController,UITableViewDataSource,UITableViewDe
             self.tweets = tweets
             self.tableView.reloadData()
         }
-            
+        
+        //task.resume()
+        
+        // initialize refresh
+        
+        
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refreshControlAction", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
+        
+ 
 
 
         // Do any additional setup after loading the view.
+    }
+
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        
+    //    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        // Make network request to fetch latest data
+        
+        
+        TwitterClient.sharedinstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
+            self.tweets = tweets
+            self.tableView.reloadData()
+            
+        }
+        //     MBProgressHUD.hideHUDForView(self.view, animated: true)
+        
+        // Do the following when the network request comes back successfully:
+        // Update tableView data source
+         refreshControl.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
