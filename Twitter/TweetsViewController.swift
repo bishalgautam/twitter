@@ -44,7 +44,7 @@ class TweetsViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if tweets != nil {
-            print("rashu",tweets?.count)
+           // print("rashu",tweets?.count)
             return (tweets?.count)!
         }
         return 0
@@ -87,15 +87,22 @@ class TweetsViewController: UIViewController,UITableViewDataSource,UITableViewDe
         return cell
     }
 
-        /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPathForCell(cell)
+        let tweet = tweets![indexPath!.row]
+        let detailViewController1 = segue.destinationViewController as! detailViewController
+        detailViewController1.tweet = tweet
+
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
    }
 

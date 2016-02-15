@@ -94,7 +94,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             TwitterClient.sharedinstance.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
                 //print("It worked!!!")
-                  print(response)
+                 // print(response)
                 var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
                 
                 for tweet in tweets {
