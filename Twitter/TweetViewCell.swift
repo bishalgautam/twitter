@@ -43,8 +43,8 @@ class TweetViewCell: UITableViewCell {
         // Initialization code
         
         userNamelabel.preferredMaxLayoutWidth = userNamelabel.frame.size.width
-        realNameLabel.preferredMaxLayoutWidth = realNameLabel.frame.size.width
-         tweetLabel.preferredMaxLayoutWidth = tweetLabel.frame.size.width
+        //realNameLabel.preferredMaxLayoutWidth = realNameLabel.frame.size.width
+        tweetLabel.preferredMaxLayoutWidth = tweetLabel.frame.size.width
         
     }
 

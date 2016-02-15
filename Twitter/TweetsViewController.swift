@@ -10,8 +10,6 @@ import UIKit
 
 class TweetsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate  {
     
-   //  var refreshControl: UIRefreshControl!
-    
     var tweets: [Tweet]?
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,40 +27,7 @@ class TweetsViewController: UIViewController,UITableViewDataSource,UITableViewDe
             self.tableView.reloadData()
         }
         
-        //task.resume()
-        
-        // initialize refresh
-        
-        
-        
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "refreshControlAction", forControlEvents: UIControlEvents.ValueChanged)
-        tableView.insertSubview(refreshControl, atIndex: 0)
-        
- 
-
-
-        // Do any additional setup after loading the view.
-    }
-
-    
-    func refreshControlAction(refreshControl: UIRefreshControl) {
-        
-    //    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        // Make network request to fetch latest data
-        
-        
-        TwitterClient.sharedinstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
-            self.tweets = tweets
-            self.tableView.reloadData()
-            
-        }
-        //     MBProgressHUD.hideHUDForView(self.view, animated: true)
-        
-        // Do the following when the network request comes back successfully:
-        // Update tableView data source
-         refreshControl.endRefreshing()
-    }
+   }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,16 +38,20 @@ class TweetsViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     
+    @IBAction func onMyProfile(sender: AnyObject) {
+        
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if tweets != nil {
+            print("rashu",tweets?.count)
             return (tweets?.count)!
         }
-        return 0     }
+        return 0
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetViewCell
-        
-       // cell.tweet = tweets![indexPath.row]
         
         let tweet = tweets![indexPath.row]
         cell.realNameLabel.text = tweet.user!.name
@@ -128,4 +97,5 @@ class TweetsViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     */
 
-}
+   }
+

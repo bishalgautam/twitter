@@ -15,8 +15,6 @@ import AFNetworking
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var storyboard = UIStoryboard(name: "Main", bundle: nil)
-    
-    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -32,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         print("application started")
         return true
-    }
+     }
     
     func userDidLogout() {
         var vc = storyboard.instantiateInitialViewController()! as UIViewController
