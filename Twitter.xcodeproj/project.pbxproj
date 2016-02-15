@@ -19,6 +19,7 @@
 		2C9066341C67C7F3001CD775 /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9066331C67C7F3001CD775 /* TweetsViewController.swift */; };
 		2CDDA6211C681A7D00C14B73 /* TweetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDA6201C681A7D00C14B73 /* TweetViewCell.swift */; };
 		2CFBE73A1C71855F0073A404 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE7391C71855F0073A404 /* detailViewController.swift */; };
+		2CFBE73C1C727AC00073A404 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBE73B1C727AC00073A404 /* UserProfileViewController.swift */; };
 		5E8A7E33EC4EDC406FF12EC1 /* Pods_Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E81E35F8F5F6273C6A8A47FC /* Pods_Twitter.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		2C9066331C67C7F3001CD775 /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		2CDDA6201C681A7D00C14B73 /* TweetViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetViewCell.swift; sourceTree = "<group>"; };
 		2CFBE7391C71855F0073A404 /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
+		2CFBE73B1C727AC00073A404 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		B3BFC2B0EF85B74D9D7DBDAF /* Pods-Twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.release.xcconfig"; sourceTree = "<group>"; };
 		BBB402C6770F88653A570B06 /* Pods-Twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.debug.xcconfig"; sourceTree = "<group>"; };
 		E81E35F8F5F6273C6A8A47FC /* Pods_Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,10 +77,12 @@
 		2C5570F21C617B520052E58B /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				2CFBE73D1C7285390073A404 /* Views */,
 				2CC790991C70FE5E000FFF26 /* View Controllers */,
 				2C90662E1C6712C1001CD775 /* Model */,
 				2C90662D1C6712B3001CD775 /* API */,
 				2C5570F31C617B520052E58B /* AppDelegate.swift */,
+				2C5570F51C617B520052E58B /* ViewController.swift */,
 				2C5570F71C617B520052E58B /* Main.storyboard */,
 				2C5570FA1C617B520052E58B /* Assets.xcassets */,
 				2C5570FC1C617B520052E58B /* LaunchScreen.storyboard */,
@@ -99,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				2C90662F1C671303001CD775 /* Tweet.swift */,
-				2CDDA6201C681A7D00C14B73 /* TweetViewCell.swift */,
 				2C9066311C671310001CD775 /* User.swift */,
 			);
 			name = Model;
@@ -109,11 +112,19 @@
 			isa = PBXGroup;
 			children = (
 				2C9066331C67C7F3001CD775 /* TweetsViewController.swift */,
-				2C5570F51C617B520052E58B /* ViewController.swift */,
 				2C2F20001C716D5E00FFB93B /* MyProfileViewController.swift */,
 				2CFBE7391C71855F0073A404 /* detailViewController.swift */,
+				2CFBE73B1C727AC00073A404 /* UserProfileViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		2CFBE73D1C7285390073A404 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2CDDA6201C681A7D00C14B73 /* TweetViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		F04DE64271DB16F4A1D167AA /* Pods */ = {
@@ -256,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C9066321C671310001CD775 /* User.swift in Sources */,
+				2CFBE73C1C727AC00073A404 /* UserProfileViewController.swift in Sources */,
 				2C5570F61C617B520052E58B /* ViewController.swift in Sources */,
 				2CFBE73A1C71855F0073A404 /* detailViewController.swift in Sources */,
 				2C9066341C67C7F3001CD775 /* TweetsViewController.swift in Sources */,

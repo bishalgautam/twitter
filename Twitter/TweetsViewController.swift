@@ -13,6 +13,8 @@ class TweetsViewController: UIViewController,UITableViewDataSource,UITableViewDe
     var tweets: [Tweet]?
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var tweetTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,6 +86,11 @@ class TweetsViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         cell.createdTimeLabel.text = String(finalTime)
         
+        var imageView = cell.posterImageLabel
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+        imageView.userInteractionEnabled = true
+        imageView.addGestureRecognizer(tapGestureRecognizer)
+        
         return cell
     }
 
@@ -92,17 +99,44 @@ class TweetsViewController: UIViewController,UITableViewDataSource,UITableViewDe
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "myProfileSegue" {
         
+        }else if segue.identifier == "userProfileSegue" {
+            let tweet = sender as! Tweet
+            let userProfileViewController = segue.destinationViewController as! UserProfileViewController
+            userProfileViewController.user = tweet.user
+        }
+        else{
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPathForCell(cell)
         let tweet = tweets![indexPath!.row]
         let detailViewController1 = segue.destinationViewController as! detailViewController
         detailViewController1.tweet = tweet
+        }
 
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
     
+    
+    
+    func imageTapped(sender: UITapGestureRecognizer) {
+        let tapLocation = sender.locationInView(self.tableView)
+        let indexPath = self.tableView.indexPathForRowAtPoint(tapLocation)
+        let tweet = tweets![indexPath!.row]
+        
+        self.performSegueWithIdentifier("userProfileSegue", sender: tweet)
+    }
 
+    @IBAction func onTweet(sender: AnyObject) {
+        TwitterClient.sharedinstance.makeTweet(tweetTextField.text!)
+        tweetTextField.text = ""
+        
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+      //  [TextField become FirstResponder];
+        print("view did appear")
+    }
    }
 

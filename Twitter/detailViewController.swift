@@ -32,7 +32,7 @@ class detailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nameLabel.text = tweet.user?.name
-        screenNameLabel.text = tweet.user?.screenname
+        screenNameLabel.text = "@" + (tweet.user?.screenname)!
         descLabel.text = tweet.text
         retweetLabel.text = ""
         likeLabel.text = ""
